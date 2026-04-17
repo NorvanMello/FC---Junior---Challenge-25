@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    /* ===== Neutral ===== */
+    --neutral-900: #141D2F;
+    --neutral-800: #1E2A47;
+    --neutral-700: #2B3442;
+    --neutral-500: #4B6A9B;
+    --neutral-300: #697C9A;
+    --neutral-200: #90A4D4;
+    --neutral-100: #F6F8FF;
+    --neutral-0:   #FFFFFF;
+
+    /* ===== Blue ===== */
+    --blue-300: #60ABFF;
+    --blue-500: #0079FF;
+
+    /* ===== Red ===== */
+    --red-500: #F74646;
+
+    /* ===== Color - Dark Theme ===== */
+    --bg-primary-color-dark: var(--neutral-900);
+    --bg-secondary-color-dark: var(--neutral-800);
+
+    --text-primary-color-dark: var(--neutral-0);
+
+    /* ===== Spacing ===== */
+    --spacing-0: 0px;
+    --spacing-025: 2px;
+    --spacing-050: 4px;
+    --spacing-075: 6px;
+    --spacing-100: 8px;
+    --spacing-125: 10px;
+    --spacing-150: 12px;
+    --spacing-200: 16px;
+    --spacing-250: 20px;
+    --spacing-300: 24px;
+    --spacing-400: 32px;
+    --spacing-500: 40px;
+    --spacing-600: 48px;
+    --spacing-800: 64px;
+    --spacing-1000: 80px;
+
+    /* ===== Radius ===== */
+    --radius-0: 0px;
+    --radius-4: 4px;
+    --radius-6: 6px;
+    --radius-8: 8px;
+    --radius-10: 10px;
+    --radius-12: 12px;
+    --radius-16: 16px;
+    --radius-20: 20px;
+    --radius-24: 24px;
+    --radius-full: 999px;
+
+    /* Font Family */
+    --font-primary: "Space Mono", monospace;
+
+    /* Font Sizes */
+    --text-1: 26px;
+    --text-2: 22px;
+    --text-3: 18px;
+    --text-3-mobile: 13px;
+    --text-4: 16px;
+    --text-5: 16px;
+    --text-6: 15px;
+    --text-7: 13px;
+    --text-8: 13px;
+
+    /* Line Heights */
+    --lh-120: 1.2;
+    --lh-140: 1.4;
+    --lh-150: 1.5;
+
+    /* Letter Spacing */
+    --ls-0: 0px;
+    --ls-wide: 2.5px;
+
+    /* Font Weights */
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --text-preset-1: var(--fw-bold) var(--text-1) / var(--lh-120) var(--font-primary);
+    --text-preset-2: var(--fw-bold) var(--text-2) / var(--lh-140) var(--font-primary);
+    --text-preset-3: var(--fw-regular) var(--text-3) / var(--lh-140) var(--font-primary);
+    --text-preset-3-mobile: var(--fw-regular) var(--text-3-mobile) / var(--lh-140) var(--font-primary);
+    --text-preset-4: var(--fw-regular) var(--text-4) / var(--lh-150) var(--font-primary);
+    --text-preset-5: var(--fw-bold) var(--text-5) / var(--lh-150) var(--font-primary);
+    --text-preset-6: var(--fw-regular) var(--text-6) / var(--lh-150) var(--font-primary);
+    --text-preset-7: var(--fw-regular) var(--text-7) / var(--lh-150) var(--font-primary);
+    --text-preset-8: var(--fw-bold) var(--text-8) / var(--lh-140) var(--font-primary);
+    --text-preset-8-letter-spacing: var(--ls-wide);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--bg-primary-color-dark);
+}
+
+#main-card {
+    background: none;
+    margin: var(--spacing-400) var(--spacing-200) 136px;
+}
+
+#logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo-text {
+    font: var(--fw-bold) var(--text-1) var(--font-primary);
+    color: var(--neutral-0);
+}
+
+#theme {
+    background: none;
+    border: none;
+
+    font: var(--text-preset-8);
+    letter-spacing: var(--text-preset-8-letter-spacing);
+    color: var(--neutral-200);
+
+    display: flex;
+    align-items: center;
+}
+
+#theme img {
+    margin-left: var(--spacing-150);
+}
+
+#search {
+    margin: var(--spacing-400) 0;
+    padding: var(--spacing-100) var(--spacing-150);
+
+
+    height: 69px;
+    width: 100%;
+
+
+    background: var(--bg-secondary-color-dark);
+    border-radius: var(--radius-16);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#search-input {
+    width: 100%;
+    display: flex;
+
+    flex: 2;
+}
+
+#search-input input {
+    border: none;
+    background: none;
+    
+    width: 100%;
+    
+}
+
+#search-input input::placeholder {
+    font: var(--text-preset-3-mobile);
+    letter-spacing: -1px;
+}
+
+#search-input img {
+    margin-right: 10px
+}
+
+#search button {
+    border: none;
+    border-radius: var(--radius-10);
+    background:var(--blue-500);
+
+    height: 100%;
+    width: 100%;
+
+    flex: 1;
+
+    font: var(--text-preset-5);
+    color: var(--text-primary-color-dark);
+}
+
+#main-body {
+    background: var(--bg-secondary-color-dark);
+    border-radius: var(--radius-16);
+
+    padding: var(--spacing-400) var(--spacing-300);
+}
+
+.profile-container {
+    display: flex;
+    gap: var(--spacing-250);
+    
+}
+
+.img-profile img{
+    width: 70px;
+    height: 70px;
+
+    border-radius: 999px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-details .name {
+    font: var(--text-preset-1);
+    color: var(--text-primary-color-dark);
+}
+
+.user-details .at {
+    font: var(--text-preset-4);
+    color: var(--blue-300);
+}
+
+.user-details .date {
+    font: var(--text-preset-6);
+    color: var(--text-primary-color-dark);
+}
