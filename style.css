@@ -244,7 +244,7 @@ body {
     opacity: 70%;
 }
 
-.profile-info .stats-section {
+/* .profile-info */.stats-section {
     background: var(--bg-primary-color-dark);
 
     margin: var(--spacing-300) 0;
@@ -253,9 +253,9 @@ body {
     border-radius: var(--radius-10);
 }
 
-.profile-info .stats-section .repos,
-.profile-info .stats-section .followers,
-.profile-info .stats-section .following {
+/* .profile-info .stats-section */.repos,
+/* .profile-info .stats-section */.followers,
+/* .profile-info .stats-section */.following { 
     font: var(--text-preset-7);
     color: var(--text-primary-color-dark);
     display: flex;
@@ -263,13 +263,11 @@ body {
     gap: var(--spacing-050);
 }
 
-.profile-info .stats-section .followers {
+/* .profile-info .stats-section*/ .followers { 
     margin: var(--spacing-200) 0;
 }
 
-.profile-info .stats-section .repos span,
-.profile-info .stats-section .followers span,
-.profile-info .stats-section .following span {
+.github-count {
     font: var(--text-preset-2);
 }
 
@@ -279,7 +277,7 @@ body {
     gap: var(--spacing-200);
 }
 
-.links-section div {
+.link {
     font: var(--text-preset-6);
     color: var(--text-primary-color-dark);
 
