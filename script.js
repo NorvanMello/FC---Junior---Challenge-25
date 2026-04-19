@@ -34,21 +34,23 @@ function toggleClass(element, className) {
 }
 
 function applyThemeStyles() {
-     themeElements.forEach(([element, className]) => {
-        toggleClass(element, className);
-    });
+    //  themeElements.forEach(([element, className]) => {
+    //     toggleClass(element, className);
+    // });
 
 
-    githubStats.forEach(stat => {
-        toggleClass(stat, "text-light-primary")
-    })
-    githubCount.forEach(count => {
-        toggleClass(count, "text-light-secondary")
-    })
+    // githubStats.forEach(stat => {
+    //     toggleClass(stat, "text-light-primary")
+    // })
+    // githubCount.forEach(count => {
+    //     toggleClass(count, "text-light-secondary")
+    // })
 
-    linkItems.forEach(link => {
-        toggleClass(link, "text-light-primary")
-    })
+    // linkItems.forEach(link => {
+    //     toggleClass(link, "text-light-primary")
+    // })
+
+    body.classList.toggle("bg-light-primary")
 }
 
 function updateThemeButton() {
@@ -56,16 +58,16 @@ function updateThemeButton() {
     updateThemeButtonContent(isLightTheme);
 }
 
-const themeElements = [
-    [body, "bg-light-primary"],
-    [logoText, "text-light-tertiary"],
-    [searchContainer, "bg-light-secondary"],
-    [mainCard, "bg-light-secondary"],
-    [userName, "text-light-secondary"],
-    [userDate, "text-light-primary"],
-    [bioText, "text-light-primary"],
-    [statsSection,"bg-light-primary"]
-];
+// const themeElements = [
+//     [body, "bg-light-primary"],
+//     [logoText, "text-light-tertiary"],
+//     [searchContainer, "bg-light-secondary"],
+//     [mainCard, "bg-light-secondary"],
+//     [userName, "text-light-secondary"],
+//     [userDate, "text-light-primary"],
+//     [bioText, "text-light-primary"],
+//     [statsSection,"bg-light-primary"]
+// ];
 
 switchMode.addEventListener("click", () => {
     
