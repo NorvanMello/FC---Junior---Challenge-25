@@ -1,59 +1,74 @@
-const switchMode = document.querySelector("#theme");
+const switchMode = document.querySelector("#theme")
+
+const themeLabel = document.querySelector(".theme-label");
+const themeIcon = document.querySelector(".theme-icon");
 
 const body = document.querySelector("body")
 const logoText = document.querySelector(".logo-text")
-const search = document.querySelector(".search")
-const mainBody = document.querySelector(".main-body")
+const searchContainer = document.querySelector(".search")
+const mainCard = document.querySelector(".main-body")
 
 const userName = document.querySelector(".name")
-const at = document.querySelector(".date")
+const userDate  = document.querySelector(".date")
 
-const bioInfo = document.querySelector(".bio-info")
-const paragraph = bioInfo.querySelector("p");
+const bioText = document.querySelector(".bio-text")
 
 const statsSection = document.querySelector(".stats-section");
-const gitubCount = document.querySelectorAll(".github-count");
+const githubCount = document.querySelectorAll(".github-count");
 const githubStats = document.querySelectorAll(".repos, .followers, .following")
 
-const linksSection = document.querySelectorAll(".link")
+const linkItems = document.querySelectorAll(".link")
 
-
-
-function toggleTheme(theme) {
-    if (theme === "LIGHT") {
-        return `DARK <img src="./assets/icon-moon.svg" alt="">`;
+function updateThemeButtonContent(isLightTheme) {
+    if (isLightTheme) {
+        themeLabel.innerText = "DARK";
+         themeIcon.src = "./assets/icon-moon.svg";
     } else {
-        return `LIGHT <img src="./assets/icon-sun.svg" alt="">`;
+        themeLabel.innerText = "LIGHT";
+        themeIcon.src = "./assets/icon-sun.svg";
     }
 }
 
-switchMode.addEventListener("click", (e) => {
-    body.classList.toggle("bg-light-primary");
-    
-    search.classList.toggle("bg-light-secondary");
-    mainBody.classList.toggle("bg-light-secondary")
+function toggleClass(element, className) {
+    return element.classList.toggle(className);
+}
 
-    logoText.classList.toggle("text-light-tertiary");
-    userName.classList.toggle("text-light-secondary");
-    at.classList.toggle("text-light-primary");
-    paragraph.classList.toggle("text-light-primary");
+function applyThemeStyles() {
+     themeElements.forEach(([element, className]) => {
+        toggleClass(element, className);
+    });
 
 
-    statsSection.classList.toggle("bg-light-primary");
     githubStats.forEach(stat => {
-        stat.classList.toggle("text-light-primary")
+        toggleClass(stat, "text-light-primary")
     })
-    gitubCount.forEach(count => {
-        count.classList.toggle("text-light-secondary")
-    })
-
-    linksSection.forEach(link => {
-        link.classList.toggle("text-light-primary")
+    githubCount.forEach(count => {
+        toggleClass(count, "text-light-secondary")
     })
 
-    /* Logo and Button */
-    const btn = e.currentTarget;
-    const currentText = btn.textContent.trim();
+    linkItems.forEach(link => {
+        toggleClass(link, "text-light-primary")
+    })
+}
+
+function updateThemeButton() {
+    const isLightTheme = body.classList.contains("bg-light-primary");
+    updateThemeButtonContent(isLightTheme);
+}
+
+const themeElements = [
+    [body, "bg-light-primary"],
+    [logoText, "text-light-tertiary"],
+    [searchContainer, "bg-light-secondary"],
+    [mainCard, "bg-light-secondary"],
+    [userName, "text-light-secondary"],
+    [userDate, "text-light-primary"],
+    [bioText, "text-light-primary"],
+    [statsSection,"bg-light-primary"]
+];
+
+switchMode.addEventListener("click", () => {
     
-    btn.innerHTML = toggleTheme(currentText);
+    applyThemeStyles();
+    updateThemeButton();
 })
