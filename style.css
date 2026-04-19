@@ -299,7 +299,7 @@ body {
     background: var(--bg-primary-color-light);
 }
 
-.bg-light-secondary {
+/* .bg-light-secondary {
     background: var(--bg-secondary-color-light);
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
 }
@@ -314,4 +314,48 @@ body {
 
 .text-light-tertiary {
     color: var(--text-tertiary-color-light);
+} */
+
+body.bg-light-primary .repos,
+body.bg-light-primary .followers,
+body.bg-light-primary .following {
+    color: var(--text-primary-color-light);
+}
+
+body.bg-light-primary .github-count {
+    color: var(--text-secondary-color-light);
+}
+
+body.bg-light-primary .link {
+    color: var(--text-primary-color-light);
+}
+
+body.bg-light-primary .logo-text {
+    color: var(--text-tertiary-color-light);
+}
+
+body.bg-light-primary .search {
+    background: var(--bg-secondary-color-light);
+    box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
+}
+
+body.bg-light-primary .main-body {
+    background: var(--bg-secondary-color-light);
+    box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
+}
+
+body.bg-light-primary .name {
+    color: var(--text-secondary-color-light);
+}
+
+body.bg-light-primary .date {
+    color: var(--text-primary-color-light);
+}
+
+body.bg-light-primary .bio-text {
+    color: var(--text-primary-color-light);
+}
+
+body.bg-light-primary .stats-section {
+    background: var(--bg-primary-color-light);
 }
