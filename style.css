@@ -133,11 +133,11 @@ body {
 
     display: flex;
     align-items: center;
+
+    gap: var(--spacing-150);
 }
 
-/* #theme */.theme-label { 
-    margin-left: var(--spacing-150);
-    
+/* #theme */.theme-label {     
     font: var(--text-preset-8);
     letter-spacing: var(--text-preset-8-letter-spacing);
     color: var(--neutral-200);
@@ -295,7 +295,7 @@ body {
 
 /* Light Mode */
 
-.bg-light-primary {
+.light-theme {
     background: var(--bg-primary-color-light);
 }
 
@@ -316,46 +316,46 @@ body {
     color: var(--text-tertiary-color-light);
 } */
 
-body.bg-light-primary .repos,
-body.bg-light-primary .followers,
-body.bg-light-primary .following {
+body.light-theme .repos,
+body.light-theme .followers,
+body.light-theme .following {
     color: var(--text-primary-color-light);
 }
 
-body.bg-light-primary .github-count {
+body.light-theme .github-count {
     color: var(--text-secondary-color-light);
 }
 
-body.bg-light-primary .link {
+body.light-theme .link {
     color: var(--text-primary-color-light);
 }
 
-body.bg-light-primary .logo-text {
+body.light-theme .logo-text {
     color: var(--text-tertiary-color-light);
 }
 
-body.bg-light-primary .search {
+body.light-theme .search {
     background: var(--bg-secondary-color-light);
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
 }
 
-body.bg-light-primary .main-body {
+body.light-theme .main-body {
     background: var(--bg-secondary-color-light);
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
 }
 
-body.bg-light-primary .name {
+body.light-theme .name {
     color: var(--text-secondary-color-light);
 }
 
-body.bg-light-primary .date {
+body.light-theme .date {
     color: var(--text-primary-color-light);
 }
 
-body.bg-light-primary .bio-text {
+body.light-theme .bio-text {
     color: var(--text-primary-color-light);
 }
 
-body.bg-light-primary .stats-section {
+body.light-theme .stats-section {
     background: var(--bg-primary-color-light);
 }
