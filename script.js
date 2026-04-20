@@ -4,34 +4,34 @@ const themeLabel = document.querySelector(".theme-label");
 const themeIcon = document.querySelector(".theme-icon");
 
 const body = document.querySelector("body")
-const logoText = document.querySelector(".logo-text")
-const searchContainer = document.querySelector(".search")
-const mainCard = document.querySelector(".main-body")
+// const logoText = document.querySelector(".logo-text")
+// const searchContainer = document.querySelector(".search")
+// const mainCard = document.querySelector(".main-body")
 
-const userName = document.querySelector(".name")
-const userDate  = document.querySelector(".date")
+// const userName = document.querySelector(".name")
+// const userDate  = document.querySelector(".date")
 
-const bioText = document.querySelector(".bio-text")
+// const bioText = document.querySelector(".bio-text")
 
-const statsSection = document.querySelector(".stats-section");
-const githubCount = document.querySelectorAll(".github-count");
-const githubStats = document.querySelectorAll(".repos, .followers, .following")
+// const statsSection = document.querySelector(".stats-section");
+// const githubCount = document.querySelectorAll(".github-count");
+// const githubStats = document.querySelectorAll(".repos, .followers, .following")
 
-const linkItems = document.querySelectorAll(".link")
+// const linkItems = document.querySelectorAll(".link")
 
 function updateThemeButtonContent(isLightTheme) {
     if (isLightTheme) {
         themeLabel.innerText = "DARK";
-         themeIcon.src = "./assets/icon-moon.svg";
+        themeIcon.src = "./assets/icon-moon.svg";
     } else {
         themeLabel.innerText = "LIGHT";
         themeIcon.src = "./assets/icon-sun.svg";
     }
 }
 
-function toggleClass(element, className) {
-    return element.classList.toggle(className);
-}
+// function toggleClass(element, className) {
+//     return element.classList.toggle(className);
+// }
 
 function applyThemeStyles() {
     //  themeElements.forEach(([element, className]) => {
@@ -50,11 +50,11 @@ function applyThemeStyles() {
     //     toggleClass(link, "text-light-primary")
     // })
 
-    body.classList.toggle("bg-light-primary")
+    body.classList.toggle("light-theme")
 }
 
 function updateThemeButton() {
-    const isLightTheme = body.classList.contains("bg-light-primary");
+    const isLightTheme = body.classList.contains("light-theme");
     updateThemeButtonContent(isLightTheme);
 }
 
@@ -74,3 +74,4 @@ switchMode.addEventListener("click", () => {
     applyThemeStyles();
     updateThemeButton();
 })
+
