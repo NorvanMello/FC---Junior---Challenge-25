@@ -8,11 +8,6 @@ const body = document.querySelector("body")
 // const searchContainer = document.querySelector(".search")
 // const mainCard = document.querySelector(".main-body")
 
-// const userName = document.querySelector(".name")
-// const userDate  = document.querySelector(".date")
-
-// const bioText = document.querySelector(".bio-text")
-
 // const statsSection = document.querySelector(".stats-section");
 // const githubCount = document.querySelectorAll(".github-count");
 // const githubStats = document.querySelectorAll(".repos, .followers, .following")
@@ -75,3 +70,55 @@ switchMode.addEventListener("click", () => {
     updateThemeButton();
 })
 
+const userImg = document.querySelector(".user-img")
+
+const userName = document.querySelector(".username")
+const atUsername = document.querySelector(".at-username")
+const userDate  = document.querySelector(".date")
+
+const bioText = document.querySelector(".bio-text")
+
+const reposCount = document.querySelector(".repos-count");
+const followersCount = document.querySelector(".followers-count");
+const followingCount = document.querySelector(".following-count");
+
+const locationLinkText = document.querySelector(".location-link-text");
+const twitterLinkText = document.querySelector(".twitter-link-text");
+const websiteLinkText = document.querySelector(".website-link-text");
+const companyLinkText = document.querySelector(".company-link-text");
+
+async function getUser() {
+    const response = await fetch("https://api.github.com/users/NorvanMello");
+    const data = await response.json();
+    console.log(data)
+    return data;
+}
+
+function renderUser(userData) {
+    userImg.src = `${userData.avatar_url}`
+
+    userName.innerText = `${userData.name ? userData.name : "Not Available"}`
+    atUsername.innerText = `@${userData.login}`
+
+    const date = new Date(userData.created_at) // create an Object: Current date/time based on the user's system or passing a value
+    const options = { day: "2-digit", month: "short", year: "numeric" }; //format
+    const formattedDate = date.toLocaleDateString("en-GB", options); // If I used un-GB the format would be: Month Day Year
+
+    bioText.innerText = `${userData.bio ? userData.bio : "This profile has no bio"}`
+
+    userDate.innerText = `Joined ${formattedDate}`  
+
+    reposCount.innerText = `${userData.public_repos}`
+    followersCount.innerText = `${userData.followers}`
+    followingCount.innerText = `${userData.following}`
+
+    locationLinkText.innerText = `${userData.location ? userData.location : "Not Available"}`
+    twitterLinkText.innerText = `${userData.twitter_username ? userData.twitter_username : "Not Available"}`
+    websiteLinkText.innerText = `${userData.blog ? userData.blog : "Not Available"}`
+    companyLinkText.innerText = `${userData.company ? userData.company : "Not Available"}`
+
+}
+
+getUser().then(userData => {
+    renderUser(userData);
+})
