@@ -26,7 +26,7 @@
         <img src="./assets/icon-search.svg" alt="">
         <input id="input-id" type="text" placeholder="Search GitHub username...">
       </div>
-      <button>Search</button> 
+      <button class="input-btn">Search</button> 
     </section>
 
     <section  class="main-body">
@@ -39,7 +39,7 @@
           <div class="user-details">
             <h1 class="username"></h1>
             <span class="at-username"></span>
-            <span class="date">Joined 25 Jan 2011</span>
+            <span class="date"></span>
           </div>
         </div>
       </div>
@@ -53,24 +53,24 @@
           <p class="repos">
             Repos
 
-            <span class="github-count repos-count"></span>
+            <span class="github-count repos-count">0</span>
           </p>
           <p class="followers">
             Followers
 
-            <span class="github-count followers-count"></span>
+            <span class="github-count followers-count">0</span>
           </p>
           <p class="following">
             Following
 
-            <span class="github-count following-count"></span>
+            <span class="github-count following-count">0</span>
           </p>
         </div>
   
         <div class="links-section">
           <div class="link">
             <img src="./assets/icon-location.svg" alt="">
-            <span class="location-link-text">San Francisco</span>
+            <span class="location-link-text">Not Available</span>
           </div>
           <div class="link">
             <img src="./assets/icon-twitter.svg" alt="">
@@ -78,14 +78,27 @@
           </div>
           <div class="link">
             <img src="./assets/icon-website.svg" alt="">
-            <span class="website-link-text">https://github.blog</span>
+            <span class="website-link-text">Not Available</span>
           </div>
           <div class="link">
             <img src="./assets/icon-company.svg" alt="">
-            <span class="company-link-text">@github</span>
+            <span class="company-link-text">Not Available</span>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="error-container hidden">
+      <div class="error-body">
+        <p class="error-title">
+          No results found!
+        </p>
+
+        <p class="error-text">
+          We couldn’t find any GitHub users matching your search. Please double-check the username and try again.
+        </p>
+      </div>
+
     </section>
   </main>
 
