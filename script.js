@@ -131,7 +131,7 @@ const mainCard = document.querySelector(".main-body")
 const errorContainer = document.querySelector(".error-container")
 
 inputBtn.addEventListener("click", async () => {
-    const user = inputId.value.trim();
+    const user = inputId.value.trim().replace(/\s+/g, "");
 
     try {
         const userData = await getUser(user);
