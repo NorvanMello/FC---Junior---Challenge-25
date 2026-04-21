@@ -70,13 +70,13 @@ switchMode.addEventListener("click", () => {
     updateThemeButton();
 })
 
-const userImg = document.querySelector(".user-img")
+const userImg = document.querySelector(".user-img");
 
-const userName = document.querySelector(".username")
-const atUsername = document.querySelector(".at-username")
-const userDate  = document.querySelector(".date")
+const userName = document.querySelector(".username");
+const atUsername = document.querySelector(".at-username");
+const userDate  = document.querySelector(".date");
 
-const bioText = document.querySelector(".bio-text")
+const bioText = document.querySelector(".bio-text");
 
 const reposCount = document.querySelector(".repos-count");
 const followersCount = document.querySelector(".followers-count");
@@ -87,10 +87,16 @@ const twitterLinkText = document.querySelector(".twitter-link-text");
 const websiteLinkText = document.querySelector(".website-link-text");
 const companyLinkText = document.querySelector(".company-link-text");
 
-async function getUser() {
-    const response = await fetch("https://api.github.com/users/NorvanMello");
+async function getUser(user) {
+    console.log(user)
+
+    const response = await fetch(`https://api.github.com/users/${user}`);
+    if(!response.ok) {
+        throw new Error("User not found!");
+    }
+
     const data = await response.json();
-    console.log(data)
+
     return data;
 }
 
@@ -116,9 +122,24 @@ function renderUser(userData) {
     twitterLinkText.innerText = `${userData.twitter_username ? userData.twitter_username : "Not Available"}`
     websiteLinkText.innerText = `${userData.blog ? userData.blog : "Not Available"}`
     companyLinkText.innerText = `${userData.company ? userData.company : "Not Available"}`
-
 }
 
-getUser().then(userData => {
-    renderUser(userData);
-})
+const inputBtn = document.querySelector(".input-btn");
+const inputId = document.querySelector("#input-id");
+
+const mainCard = document.querySelector(".main-body")
+const errorContainer = document.querySelector(".error-container")
+
+inputBtn.addEventListener("click", async () => {
+    const user = inputId.value.trim();
+
+    try {
+        const userData = await getUser(user);
+        renderUser(userData);
+
+    } catch(error) {
+        mainCard.classList.add("hidden");
+        errorContainer.classList.remove("hidden");
+    }
+}) 
+
