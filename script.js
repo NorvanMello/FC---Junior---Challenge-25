@@ -46,12 +46,37 @@ function applyThemeStyles() {
     // })
 
     body.classList.toggle("light-theme")
+
+    const isLightTheme = body.classList.contains("light-theme")
+    
+    const theme =  isLightTheme ? "light" : "dark";
+    saveTheme(theme);
 }
 
 function updateThemeButton() {
     const isLightTheme = body.classList.contains("light-theme");
     updateThemeButtonContent(isLightTheme);
 }
+
+function saveTheme(theme) {
+    localStorage.setItem("theme", theme)
+}
+
+function loadTheme() {
+    return localStorage.getItem("theme")
+}
+
+function initTheme() {
+    const savedTheme = loadTheme();
+
+    if(savedTheme === "light"){
+        body.classList.add("light-theme")
+    }
+
+    updateThemeButton();
+}
+
+initTheme();
 
 // const themeElements = [
 //     [body, "bg-light-primary"],
@@ -69,6 +94,8 @@ switchMode.addEventListener("click", () => {
     applyThemeStyles();
     updateThemeButton();
 })
+
+
 
 const userImg = document.querySelector(".user-img");
 
