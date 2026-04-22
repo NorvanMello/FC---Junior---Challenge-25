@@ -376,6 +376,10 @@ body.light-theme .search {
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
 }
 
+body.light-theme #input-id {
+    color: var(--text-secondary-color-light);
+}
+
 body.light-theme .main-body {
     background: var(--bg-secondary-color-light);
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.1986);
@@ -410,7 +414,7 @@ body.light-theme .error-text {
     color: var(--neutral-300);
 }
 
-/*  */
+/* Hidden */
 
 .hidden {
     display: none;
