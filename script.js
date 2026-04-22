@@ -4,15 +4,6 @@ const themeLabel = document.querySelector(".theme-label");
 const themeIcon = document.querySelector(".theme-icon");
 
 const body = document.querySelector("body")
-// const logoText = document.querySelector(".logo-text")
-// const searchContainer = document.querySelector(".search")
-// const mainCard = document.querySelector(".main-body")
-
-// const statsSection = document.querySelector(".stats-section");
-// const githubCount = document.querySelectorAll(".github-count");
-// const githubStats = document.querySelectorAll(".repos, .followers, .following")
-
-// const linkItems = document.querySelectorAll(".link")
 
 function updateThemeButtonContent(isLightTheme) {
     if (isLightTheme) {
@@ -24,26 +15,7 @@ function updateThemeButtonContent(isLightTheme) {
     }
 }
 
-// function toggleClass(element, className) {
-//     return element.classList.toggle(className);
-// }
-
 function applyThemeStyles() {
-    //  themeElements.forEach(([element, className]) => {
-    //     toggleClass(element, className);
-    // });
-
-
-    // githubStats.forEach(stat => {
-    //     toggleClass(stat, "text-light-primary")
-    // })
-    // githubCount.forEach(count => {
-    //     toggleClass(count, "text-light-secondary")
-    // })
-
-    // linkItems.forEach(link => {
-    //     toggleClass(link, "text-light-primary")
-    // })
 
     body.classList.toggle("light-theme")
 
@@ -78,24 +50,11 @@ function initTheme() {
 
 initTheme();
 
-// const themeElements = [
-//     [body, "bg-light-primary"],
-//     [logoText, "text-light-tertiary"],
-//     [searchContainer, "bg-light-secondary"],
-//     [mainCard, "bg-light-secondary"],
-//     [userName, "text-light-secondary"],
-//     [userDate, "text-light-primary"],
-//     [bioText, "text-light-primary"],
-//     [statsSection,"bg-light-primary"]
-// ];
-
 switchMode.addEventListener("click", () => {
     
     applyThemeStyles();
     updateThemeButton();
 })
-
-
 
 const userImg = document.querySelector(".user-img");
 
@@ -127,17 +86,21 @@ async function getUser(user) {
     return data;
 }
 
+function checkData(value, fallback = "Not Available") {
+    return value ? value : fallback;
+}
+
 function renderUser(userData) {
     userImg.src = `${userData.avatar_url}`
 
-    userName.innerText = `${userData.name ? userData.name : "Not Available"}`
+    userName.innerText = `${checkData(userData.name)}`
     atUsername.innerText = `@${userData.login}`
 
     const date = new Date(userData.created_at) // create an Object: Current date/time based on the user's system or passing a value
     const options = { day: "2-digit", month: "short", year: "numeric" }; //format
     const formattedDate = date.toLocaleDateString("en-GB", options); // If I used un-GB the format would be: Month Day Year
 
-    bioText.innerText = `${userData.bio ? userData.bio : "This profile has no bio"}`
+    bioText.innerText = `${checkData(userData.bio, "This profile has no bio")}`
 
     userDate.innerText = `Joined ${formattedDate}`  
 
@@ -145,10 +108,10 @@ function renderUser(userData) {
     followersCount.innerText = `${userData.followers}`
     followingCount.innerText = `${userData.following}`
 
-    locationLinkText.innerText = `${userData.location ? userData.location : "Not Available"}`
-    twitterLinkText.innerText = `${userData.twitter_username ? userData.twitter_username : "Not Available"}`
-    websiteLinkText.innerText = `${userData.blog ? userData.blog : "Not Available"}`
-    companyLinkText.innerText = `${userData.company ? userData.company : "Not Available"}`
+    locationLinkText.innerText = `${checkData(userData.location)}`
+    twitterLinkText.innerText = `${checkData(userData.twitter_username)}`
+    websiteLinkText.innerText = `${checkData(userData.blog)}`
+    companyLinkText.innerText = `${checkData(userData.company)}`
 }
 
 const inputBtn = document.querySelector(".input-btn");
