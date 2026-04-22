@@ -133,7 +133,13 @@ const errorContainer = document.querySelector(".error-container")
 inputBtn.addEventListener("click", async () => {
     const user = inputId.value.trim().replace(/\s+/g, "");
 
+    if(!user) return;
+
+    mainCard.classList.remove("hidden");
+    errorContainer.classList.add("hidden");
+
     try {
+
         const userData = await getUser(user);
         renderUser(userData);
 
@@ -141,5 +147,11 @@ inputBtn.addEventListener("click", async () => {
         mainCard.classList.add("hidden");
         errorContainer.classList.remove("hidden");
     }
-}) 
+})
+
+inputId.addEventListener("keydown", (e) => {
+    if(e.key === "Enter") {
+        inputBtn.click();
+    }
+})
 
