@@ -76,7 +76,6 @@ const websiteLinkText = document.querySelector(".website-link-text");
 const companyLinkText = document.querySelector(".company-link-text");
 
 async function getUser(user) {
-    console.log(user)
 
     const response = await fetch(`https://api.github.com/users/${user}`);
     if(!response.ok) {
@@ -89,7 +88,18 @@ async function getUser(user) {
 }
 
 function checkData(value, fallback = "Not Available") {
+
     return value ? value : fallback;
+}
+
+function updateLink({ element, textElement, value, baseUrl="" }) {
+    if(value) { 
+        element.setAttribute("href", `${baseUrl}${value}`);  
+        textElement.innerText = value;
+    } else { 
+        element.removeAttribute("href")
+        twitterLinkText.innerText = "Not Available"
+    }
 }
 
 function renderUser(userData) {
@@ -102,6 +112,9 @@ function renderUser(userData) {
     const options = { day: "2-digit", month: "short", year: "numeric" }; //format
     const formattedDate = date.toLocaleDateString("en-GB", options); // If I used un-GB the format would be: Month Day Year
 
+    const twitterLink = document.querySelector(".twitter-link")
+    const twitterLinkText = document.querySelector(".twitter-link-text")
+
     bioText.innerText = `${checkData(userData.bio, "This profile has no bio")}`
 
     userDate.innerText = `Joined ${formattedDate}`  
@@ -110,8 +123,14 @@ function renderUser(userData) {
     followersCount.innerText = `${userData.followers}`
     followingCount.innerText = `${userData.following}`
 
-    locationLinkText.innerText = `${checkData(userData.location)}`
-    twitterLinkText.innerText = `${checkData(userData.twitter_username)}`
+    locationLinkText.innerText = `${checkData(userData.location)}`;
+
+    updateLink({
+        element: twitterLink,
+        textElement: twitterLinkText,
+        value: userData.twitter_username,
+        baseUrl: "https://twitter.com/" })
+
     websiteLinkText.innerText = `${checkData(userData.blog)}`
     companyLinkText.innerText = `${checkData(userData.company)}`
 }
@@ -141,3 +160,4 @@ searchForm.addEventListener("submit", async (e) => {
         errorContainer.classList.remove("hidden");
     }
 })
+
