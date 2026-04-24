@@ -161,7 +161,7 @@ body {
 .search-form {
     height: 69px;
     width: 100%;
-    
+
     display: flex;
 }
 
@@ -210,6 +210,8 @@ body {
 
     font: var(--text-preset-5);
     color: var(--text-primary-color-dark);
+
+    cursor: pointer;
 }
 
 /* Section - Main Body, Profile Container, Profile Info, Links Section */
@@ -273,9 +275,7 @@ body {
     border-radius: var(--radius-10);
 }
 
-/* .profile-info .stats-section */.repos,
-/* .profile-info .stats-section */.followers,
-/* .profile-info .stats-section */.following { 
+.stats-section { 
     font: var(--text-preset-7);
     color: var(--text-primary-color-dark);
     display: flex;
