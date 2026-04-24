@@ -15,18 +15,20 @@
     <header id="logo">
       <span class="logo-text">devfinder</span>
 
-      <button id="theme">
+      <button id="theme" type="button" aria-pressed="false">
         <span class="theme-label">LIGHT</span>  
         <img class="theme-icon" src="./assets/icon-sun.svg" alt=""> 
       </button>
     </header>
 
     <section class="search">
-      <div class="search-input">
-        <img src="./assets/icon-search.svg" alt="">
-        <input id="input-id" type="text" placeholder="Search GitHub username...">
-      </div>
-      <button class="input-btn">Search</button> 
+      <form class="search-form" action="/search" method="GET">
+        <div class="search-input">
+          <img src="./assets/icon-search.svg" alt="">
+          <input id="input-id" type="text" placeholder="Search GitHub username..." aria-label="Search GitHub username">
+        </div>
+        <button type="submit" class="input-btn">Search</button> 
+      </form>
     </section>
 
     <section  class="main-body">
@@ -37,7 +39,7 @@
 
         <div class="profile-header">
           <div class="user-details">
-            <h1 class="username"></h1>
+            <span class="username"></span>
             <span class="at-username"></span>
             <span class="date"></span>
           </div>
