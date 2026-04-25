@@ -13,7 +13,7 @@
 
   <main id="main-card">
     <header id="logo">
-      <span class="logo-text">devfinder</span>
+      <h1 class="logo-text">devfinder</h1>
 
       <button id="theme" type="button" aria-pressed="false">
         <span class="theme-label">LIGHT</span>  
@@ -26,7 +26,7 @@
       <form class="search-form" action="/search" method="GET">
         <div class="search-input">
           <img src="./assets/icon-search.svg" alt="">
-          <input id="input-id" type="text" placeholder="Search GitHub username..." aria-label="Search GitHub username">
+          <input id="input-id" name="username" type="text" placeholder="Search GitHub username..." aria-label="Search GitHub username">
         </div>
         <button type="submit" class="input-btn">Search</button> 
       </form>
@@ -70,14 +70,17 @@
             <img src="./assets/icon-location.svg" alt="">
             <span class="location-link-text">Not Available</span>
           </div>
-          <a class="link twitter-link" target="_blank" rel="noopener">
+
+          <a class="link twitter-link" target="_blank" rel="noopener noreferrer">
             <img src="./assets/icon-twitter.svg" alt="">
             <span class="twitter-link-text">Not Available</span>
           </a>
-          <a class="link website-link" target="_blank" rel="noopener">
+
+          <a class="link website-link" target="_blank" rel="noopener noreferrer">
             <img src="./assets/icon-website.svg" alt="">
             <span class="website-link-text">Not Available</span>
           </a>
+
           <div class="link">
             <img src="./assets/icon-company.svg" alt="">
             <span class="company-link-text">Not Available</span>
